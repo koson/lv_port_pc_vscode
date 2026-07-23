@@ -2,21 +2,25 @@
 	// https://code.visualstudio.com/docs/editor/workspaces
 	// https://code.visualstudio.com/docs/editor/multi-root-workspaces
 	// https://code.visualstudio.com/docs/editor/variables-reference
-
 	"folders": [
 		{
 			"path": "."
 		},
+		{
+			"path": "../../LabBuddy/Firmware/LabBuddy-JC8012P4-HMI"
+		},
+		{
+			"path": "../lv_port_pc_visual_studio"
+		}
 	],
 	// extensions.json section
 	"extensions": {
 		"recommendations": [
-			"ms-vscode.cpptools",              // common C/C++ support
-			"ms-vscode.cpptools-themes",       // general C/C++ theme
-			"ms-vscode.cmake-tools"            // cmake support
+			"ms-vscode.cpptools", // common C/C++ support
+			"ms-vscode.cpptools-themes", // general C/C++ theme
+			"ms-vscode.cmake-tools" // cmake support
 		],
-		"unwantedRecommendations": [
-		]
+		"unwantedRecommendations": []
 	},
 	// settings.json section
 	"settings": {
@@ -37,7 +41,8 @@
 				"label": "Build",
 				"command": "cmake",
 				"args": [
-					"--build", "${command:cmake.buildDirectory}"
+					"--build",
+					"${command:cmake.buildDirectory}"
 				],
 				"group": {
 					"kind": "build",
@@ -45,7 +50,10 @@
 				},
 				"problemMatcher": {
 					"owner": "cpp",
-					"fileLocation": ["relative", "${workspaceFolder}"],
+					"fileLocation": [
+						"relative",
+						"${workspaceFolder}"
+					],
 					"pattern": {
 						"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
 						"file": 1,
@@ -76,7 +84,7 @@
 				"name": "Debug LVGL demo with gdb",
 				"type": "cppdbg",
 				"request": "launch",
-		        "program": "${workspaceFolder}/bin/main",
+				"program": "${workspaceFolder}/bin/main",
 				"args": [],
 				"cwd": "${workspaceFolder}",
 				"preLaunchTask": "Build",
@@ -84,20 +92,26 @@
 				"linux": {
 					"MIMode": "gdb",
 					"miDebuggerPath": "/usr/bin/gdb"
-				  },
-				  "osx": {
+				},
+				"osx": {
 					"MIMode": "lldb"
-				  },
-				  "windows": {
+				},
+				"windows": {
 					"MIMode": "gdb",
-					"miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
-				  }
+					"miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+					"environment": [
+						{
+							"name": "PATH",
+							"value": "C:\\mingw64\\bin;${env:PATH}"
+						}
+					]
+				}
 			},
 			{
 				"name": "Debug LVGL demo with LLVM",
 				"type": "cppdbg",
 				"request": "launch",
-		        "program": "${workspaceFolder}/bin/main",
+				"program": "${workspaceFolder}/bin/main",
 				"args": [],
 				"cwd": "${workspaceFolder}",
 				"preLaunchTask": "Build",
