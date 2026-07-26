@@ -11,6 +11,12 @@
 		},
 		{
 			"path": "../lv_port_pc_visual_studio"
+		},
+		{
+			"path": "../../LabBuddy/Firmware"
+		},
+		{
+			"path": "../../LabBuddy/Docs"
 		}
 	],
 	// extensions.json section
