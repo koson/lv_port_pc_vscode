@@ -12,10 +12,10 @@
             "environment": [
                 {
                     "name": "PATH",
-                    "value": "C:\\mingw64\\bin;${env:PATH}"
+                    "value": "C:\\mingw64\\bin;C:\\SDL2\\bin;${env:PATH}"
                 }
             ],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
             "preLaunchTask": "Build",

@@ -147,6 +147,12 @@ add_executable(main ${MAIN_SOURCES})
 target_compile_definitions(main PRIVATE LV_CONF_INCLUDE_SIMPLE)
 target_link_libraries(main ${MAIN_LIBS})
 
+add_custom_command(TARGET main POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "C:/SDL2/bin/SDL2.dll"
+    $<TARGET_FILE_DIR:main>
+)
+
 # On Windows, GUI applications do not show a console by default,
 # which hides log output. This ensures a console is available for logging.
 if (WIN32)
