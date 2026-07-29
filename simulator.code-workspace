@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../../LabBuddy/Docs"
+		},
+		{
+			"path": "../../LabBuddy/Software"
 		}
 	],
 	// extensions.json section
